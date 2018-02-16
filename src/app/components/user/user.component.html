@@ -1,0 +1,45 @@
+<p>
+  Sup, {{myname}}.
+  I know you live at {{address.street}} {{address.city}}, {{address.state}}.
+  You're {{age}} years old.
+</p>
+
+<h1>Edit User</h1>
+<div *ngIf=toggle>
+	<form>
+		<div>
+			<label for="myname">Name</label>
+			<input type="text" [(ngModel)]="myname" name="myname">
+		</div>
+		<div>
+			<label for="age">Age</label>
+			<input type="number" [(ngModel)]="age" name="age">
+		</div>
+	</form>
+</div>
+
+<button (click)="click()"> Win a free Iphone!!! </button>
+<button (click)="toggleEdit()"> Edit User </button>
+
+<form (submit)="addHobby(hobby.value)">
+	<div>
+		<label for="hobby">Hobby:</label>
+		<input type="text" #hobby>
+	</div>
+</form>
+
+<p>
+	Things I like:
+</p>
+<ul>
+	<li *ngFor="let hobby of hobbies; let i = index"> 
+	{{hobby}} <button (click)="deleteHobby(hobby)"> X </button>
+	</li>
+</ul>
+
+<h1> My Squad </h1>
+<ul>
+	<li *ngFor="let member of squad; let i = index">
+		{{i+1}}.{{member.name}}
+	</li>
+</ul>
